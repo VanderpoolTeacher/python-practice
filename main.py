@@ -1,2 +1,2 @@
-def getName():
+def getFirstName():
     return 
