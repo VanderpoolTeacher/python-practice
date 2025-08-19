@@ -31,6 +31,7 @@
 #     print(f'{item_number}, {item}, ${price}')
 #     item_number += 1
 
+# global variables
 menu = {
     1 : {"name":"Burger","price":5.99},
     2 : {"name":"Pizza","price":8.49},
@@ -41,21 +42,29 @@ menu = {
 order = {
     }
 
-while True:
-    # # display menu items
-    #  Display menu items - (print statement) - for loop initiate menu_items
-    
+#functions
+def print_menu():
     print("Menu")
     for item_no, details in menu.items():
         print(f"{item_no}. {details['name']} - ${details['price']}")
 
+def prompt_menu_selection():
     # # prompt menu selection
     # Prompt menu selection (user input)
-    item_choice = int(input("Choose item: "))
+    item_choice = int(input("Choose item: " ))
 
     # # prompt qty
     # Prompt qty 
-    item_qty = int(input("How many?"))
+    item_qty = int(input("How many?" ))
+
+#main program
+while True:
+    # # display menu items
+    #  Display menu items - (print statement) - for loop initiate menu_items
+    
+    print_menu()
+
+    prompt_menu_selection()
 
     # add order
 
@@ -71,3 +80,23 @@ while True:
         print("That is not a valid menu item.")
 
     print(order)
+
+    # continue ordering?
+        # ask user do you want to continue adding to this order
+    continue_order = input("Do you want to continue ordering? Y or N ").lower()
+        # if yes, stay in loop
+    if continue_order != 'y':
+        break
+        # if no, exit loop
+
+# calculate total
+
+# initialize variable, order_total - to store a float
+
+# use a for loop to go over orders dictionary
+    # set variable - item_price get item_price from menu dictionary (or orders if the price is included there)
+    # get item_qty from orders dictionary
+    # item_total = item_price * item_qty
+    # print item_name, item_qty, item_total
+    # add item_total to order_total
+# print order_total
